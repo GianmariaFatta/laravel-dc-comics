@@ -12,7 +12,7 @@
             <div class="row-header">
                 <div class="col-left">
                     <div class="card-header">
-                        <a href=""><img src="{{ asset('img/dc-logo.png')}}" alt=""></a>
+                        <a href="{{route('home')}}"><img src="{{ asset('img/dc-logo.png')}}" alt=""></a>
                     </div>
                 </div>
                 <div class="col-right">
