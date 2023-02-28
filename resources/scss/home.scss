@@ -1,0 +1,16 @@
+@import 'mixins' ;
+@import 'variables' ;
+
+.row-home{
+    border-top:20px solid dodgerblue;
+    border-bottom:20px solid dodgerblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:650px;
+    h1{
+
+        font-size: 100px;
+        color: dodgerblue;
+    }
+}

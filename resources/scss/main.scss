@@ -1,0 +1,146 @@
+@import 'mixins' ;
+@import 'variables' ;
+
+* {
+    color: #FFF
+}
+
+
+
+.row-button-main {
+    @include center-flex;
+
+    button {
+        margin-top: 80px;
+        width: 140px;
+        height: 30px;
+        background-color: dodgerblue;
+        font-size: 12px;
+        cursor: pointer;
+    }
+}
+
+#comics-main {
+    overflow: hidden;
+    padding: 30px;
+    height: 60%;
+}
+
+
+section {
+    @include center-flex;
+    background-color: dodgerblue;
+    height: 150px;
+    width: 100%;
+    color: white;
+
+    ul {
+        @include center-flex;
+        gap: 100px
+    }
+}
+
+.row-main {
+    width: 100%;
+    height: 400px;
+    @include center-flex;
+    ul {
+        display: flex;
+        flex-direction: column;
+    }
+    li  {
+        font-size: 10px;
+        color: $light-grey;
+        padding: 0;
+    }
+}
+
+
+
+#contents {
+    width: 100%;
+    min-height: 500px;
+    font-size: 25px;
+    background-color: #242424;
+    padding: 20px 0;
+}
+
+.comic-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col-left-main {
+    width: 50%;
+    height: 380px;
+    /* border: 2px dashed blue; */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+#comics-main
+.s-column-main ul li,
+.m-column-main ul li,
+.e-column-main ul li  {
+    display: inline-block;
+    font-size: 15px;
+    margin-bottom: 3px;
+
+}
+
+
+.col-right-main {
+    width: 50%;
+    /* border: 2px dashed blue; */
+    position: relative;
+
+    img {
+        position: absolute;
+        top: -280px;
+        right: 100px;
+        width: 100%;
+        z-index: 0;
+    }
+}
+
+.s-column-main,
+.m-column-main,
+.e-column-main {
+    width: 30%;
+    height: 100%;
+    // border:2px dashed red
+}
+
+h3 {
+    margin: 15px 0
+}
+.card {
+    height: 177px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.comic-card {
+    display: flex;
+    flex-wrap: wrap;
+    width: calc(100% / 6);
+    height: 220px;
+    padding: 25px;
+}
+
+/* HOVER */
+.s-column-main ul li:hover,
+.m-column-main ul li:hover,
+.e-column-main ul li:hover {
+    color: dodgerblue;
+    cursor: pointer;
+    
+}
+
+.comic-card:hover {
+    transform: scale(1.1);
+    filter: brightness(1.3);
+
+}
