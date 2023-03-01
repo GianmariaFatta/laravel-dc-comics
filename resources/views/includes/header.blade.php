@@ -12,13 +12,13 @@
             <div class="row-header">
                 <div class="col-left">
                     <div class="card-header">
-                        <a href="{{route('home')}}"><img src="{{ asset('img/dc-logo.png')}}" alt=""></a>
+                        <a  href="{{route('home')}}"><img src="{{ asset('img/dc-logo.png')}}" alt=""></a>
                     </div>
                 </div>
                 <div class="col-right">
                     <ul>
                       <a href="#"><li>CHARACTERS</li></a> 
-                      <a href="{{route('comics')}}"><li>COMICS</li></a> 
+                      <a href="{{route('comics.index')}}"><li>COMICS</li></a> 
                       <a href="#"><li>MOVIES</li></a> 
                       <a href="#"><li>TV</li></a> 
                       <a href="#"><li>GAMES</li></a> 

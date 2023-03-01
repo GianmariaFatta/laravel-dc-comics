@@ -1,15 +1,14 @@
  <main>
         <div id="contents">
             <div class="container">
-                <div class="comic-row">
+                <div class="comic-row p-2">
                 @foreach ($comics as $comic )
-                    
-                        <div class="comic-card">
-        <div class="card">
-            <img src={{$comic['thumb']}}>
-        </div>
-        <h6>{{$comic['title']}}</h6>
-    </div>
+                <div class="comic-card mb-4">
+                    <div class="card">
+                        <img src={{$comic->thumb}}>
+                    </div>
+                    <h6>{{$comic->title}}</h6>
+                 </div>
                 @endforeach
                 </div>
             </div>
