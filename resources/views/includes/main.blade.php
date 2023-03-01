@@ -1,7 +1,7 @@
  <main>
         <div id="contents">
             <div class="container">
-                <div class="comic-row p-2">
+                <div class="comic-row">
                 @foreach ($comics as $comic )
                 <div class="comic-card mb-4">
                     <div class="card">
