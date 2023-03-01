@@ -47,7 +47,17 @@ class ComicController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $comicsLinks =["Characters", "Comics", "Movies", "TV", "Games", "Collectibles", "Videos", "Fans", "News"];
+
+        $shopLinks = ["Shop DC", "Shop Dc Collectibles"];
+    
+        $dcLinks =["Terms Of Use", "Privacy policy (new)", "Ad Choices", "Advertising", "Jobs", "Subscriptions", "Talent Workshop", "CPSC Certificates", "Ratings", "Shop Help", "Contact Us"];
+        
+        $sitesLinks= ["DC", "MAD Magazine", "DC Kids", "DC Universe", "Dc Power Visa"];
+
+        $comic= Comic::findOrFail($id);
+
+        return view('comics.show', [ 'comicsLinks' => $comicsLinks, 'shopLinks' => $shopLinks, 'dcLinks' => $dcLinks, 'sitesLinks' => $sitesLinks, 'comic'=> $comic] );
     }
 
     /**
