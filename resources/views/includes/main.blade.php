@@ -1,6 +1,9 @@
  <main>
         <div id="contents">
             <div class="container">
+                <div class="row-button-main">
+                <a class='btn btn-success my-5 text-right' href="{{route('comics.create')}}"> ADD NEW COMIC</a>
+            </div>
                 <div class="comic-row">
                 @foreach ($comics as $comic )
                 <div class="comic-card mb-4">
@@ -13,7 +16,7 @@
                 </div>
             </div>
             <div class="row-button-main">
-                <button><a href=""> LOAD MORE</a></button>
+                <button class='btn btn-primary '><a class='text-white' href=""> LOAD MORE</a></button>
             </div>
         </div>
         <section>
