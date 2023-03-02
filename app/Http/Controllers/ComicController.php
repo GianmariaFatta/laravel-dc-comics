@@ -49,7 +49,17 @@ class ComicController extends Controller
     public function store(Request $request)
     {
         
-
+        $request->validate([
+        'title'=>'required|string|',
+        'description'=>'nullable|string|',
+        'thumb'=>'nullable|url|',
+        'price'=>'required|string|',
+        'series'=>'nullable|string|',
+        'sale_date'=>'required|date|',
+        'type'=>'required|string|',
+        'artists'=>'nullable|string|',
+        'writers'=>'nullable|string|',
+        ]);
         $data= $request->all();
 
         $comic = new Comic();
@@ -120,7 +130,7 @@ class ComicController extends Controller
 
         $comic->save();
 
-        return to_route('comics.show', $comic->id)->with('update', "Modifica di $comic->title avvenuta con successo");
+        return to_route('comics.show', $comic->id)->with('update', "Eliminazione di $comic->title avvenuta con successo");
     }
 
     /**
