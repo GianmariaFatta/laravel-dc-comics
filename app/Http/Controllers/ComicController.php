@@ -48,6 +48,8 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
+        
+
         $data= $request->all();
 
         $comic = new Comic();
@@ -91,7 +93,18 @@ class ComicController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $comicsLinks =["Characters", "Comics", "Movies", "TV", "Games", "Collectibles", "Videos", "Fans", "News"];
+
+        $shopLinks = ["Shop DC", "Shop Dc Collectibles"];
+    
+        $dcLinks =["Terms Of Use", "Privacy policy (new)", "Ad Choices", "Advertising", "Jobs", "Subscriptions", "Talent Workshop", "CPSC Certificates", "Ratings", "Shop Help", "Contact Us"];
+        
+        $sitesLinks= ["DC", "MAD Magazine", "DC Kids", "DC Universe", "Dc Power Visa"];
+        
+        $comic= Comic::findOrFail($id);
+
+        return view('comics.edit', ['comicsLinks' => $comicsLinks, 'shopLinks' => $shopLinks, 'dcLinks' => $dcLinks, 'sitesLinks' => $sitesLinks, 'comic'=> $comic]);
+
     }
 
     /**
@@ -99,7 +112,15 @@ class ComicController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data= $request->all();
+
+        $comic=  Comic::findOrfail($id);
+
+        $comic->fill($data);
+
+        $comic->save();
+
+        return to_route('comics.show', $comic->id)->with('update', "Modifica di $comic->title avvenuta con successo");
     }
 
     /**
@@ -107,6 +128,10 @@ class ComicController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $comic=  Comic::findOrfail($id);
+
+        $comic ->delete();
+
+        return to_route('comics.index')->with('delete', "Eliminazione di $comic->title avvenuta con successo");
     }
 }
