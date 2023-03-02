@@ -23,7 +23,8 @@
                     <a class='fs-5 text-white btn btn-warning  my-5 mx-2' href="{{ route('comics.edit', $comic->id) }}">
                         Edit
                         this comic</a>
-                    <form action="{{ route('comics.destroy', $comic->id) }}" method='POST'>
+                    <form type='submit' data-title="{{ $comic->title }}" class='delete-button'
+                        action="{{ route('comics.destroy', $comic->id) }}" method='POST'>
                         @method('delete')
                         @csrf
                         <button class='fs-5 text-white btn btn-danger  my-5 mx-2'>Delete</button>
@@ -62,4 +63,17 @@
         </div>
     </div>
 
+@endsection
+
+@section('scripts')
+    <script>
+        const deleteButtons = document.querySelectorAll('.delete-button');
+        deleteButtons.forEach(button => {
+            button.addEventListener('submit', (event) => {
+                event.preventDefault();
+                const confirm = window.confirm(`sei sicuro di voler eliminare ${button.dataset.title}?`);
+                if (confirm) button.submit();
+            });
+        });
+    </script>
 @endsection
