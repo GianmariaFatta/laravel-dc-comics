@@ -49,6 +49,7 @@ class ComicController extends Controller
     public function store(Request $request)
     {
         
+        $data= $request->all();
         $request->validate([
         'title'=>'required|string|',
         'description'=>'nullable|string|',
@@ -60,7 +61,6 @@ class ComicController extends Controller
         'artists'=>'nullable|string|',
         'writers'=>'nullable|string|',
         ]);
-        $data= $request->all();
 
         $comic = new Comic();
         // $comic->title = $data['title'];
@@ -124,13 +124,25 @@ class ComicController extends Controller
     {
         $data= $request->all();
 
+        $request->validate([
+            'title'=>'required|string|',
+            'description'=>'nullable|string|',
+            'thumb'=>'nullable|url|',
+            'price'=>'required|string|',
+            'series'=>'nullable|string|',
+            'sale_date'=>'required|date|',
+            'type'=>'required|string|',
+            'artists'=>'nullable|string|',
+            'writers'=>'nullable|string|',
+            ]);
+
         $comic=  Comic::findOrfail($id);
 
         $comic->fill($data);
 
         $comic->save();
 
-        return to_route('comics.show', $comic->id)->with('update', "Eliminazione di $comic->title avvenuta con successo");
+        return to_route('comics.show', $comic->id)->with('update', "Modifica di $comic->title avvenuta con successo");
     }
 
     /**
